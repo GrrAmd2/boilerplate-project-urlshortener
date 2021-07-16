@@ -1,11 +1,12 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const mongoose = require("mongoose");
-const { isValid, UrlShort } = require('./Shortener');
-const { nanoid } = require('nanoid');
+import dotenv from "dotenv"
+import express from "express";
+import cors from 'cors';
+import mongoose from "mongoose";
+import { isValid, UrlShort } from './Shortener.js';
+import { nanoid } from 'nanoid';
 
+const app = express();
+dotenv.config()
 mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 
 // Basic Configuration
